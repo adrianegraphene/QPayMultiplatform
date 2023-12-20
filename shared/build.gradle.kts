@@ -9,7 +9,7 @@ plugins {
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-	android {
+    androidTarget {
 		compilations.all {
 			kotlinOptions {
 				jvmTarget = "1.8"
@@ -25,8 +25,10 @@ kotlin {
 		it.binaries.framework {
 			baseName = "shared"
 			isStatic = true
-			export("dev.icerock.moko:graphics:0.9.0")
-			export("dev.icerock.moko:resources-compose:0.23.0")
+            export("dev.icerock.moko:graphics:0.9.0")
+            export("dev.icerock.moko:resources-compose:0.23.0")
+//            export(libs.moko.resources)
+//            export(libs.moko.graphics)
 		}
 	}
 	
@@ -45,7 +47,9 @@ kotlin {
 				api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 				api("com.arkivanov.decompose:decompose:$decomposeVersion-compose-experimental")
 				api("com.arkivanov.decompose:extensions-compose-jetbrains:$decomposeVersion-compose-experimental")
-				
+
+                // todo - usage of the api here, may be causing a leak that breaks iOS
+                // no - without API, you get a complaint from the IDE 0 so you can't even start the iOS app....
 				// Moko resources generator
 				api("dev.icerock.moko:resources-compose:0.23.0")
 				
@@ -94,7 +98,7 @@ android {
 			}
 		}
 	}
-	namespace = "com.mustfaibra.qpaymultiplatform"
+	namespace = "com.fyncom.karmacall"
 	compileSdk = 33
 	defaultConfig {
 		minSdk = 24
@@ -102,7 +106,7 @@ android {
 }
 
 multiplatformResources {
-	multiplatformResourcesPackage = "com.mustfaibra.qpaymultiplatform"
+	multiplatformResourcesPackage = "com.fyncom.karmacall"
 	multiplatformResourcesClassName = "SharedRes"
 	disableStaticFrameworkWarning = true
 }

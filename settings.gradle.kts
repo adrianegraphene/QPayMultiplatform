@@ -34,6 +34,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "QPayMultiplatform"
+rootProject.name = "KarmaCall"
 include(":androidApp")
 include(":shared")

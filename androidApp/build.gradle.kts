@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.mustfaibra.qpaymultiplatform.android"
+    namespace = "com.fyncom.karmacall.android"
     compileSdk = 33
     packagingOptions {
         resources.excludes.add("META-INF/versions/9/previous-compilation-data.bin")
     }
     defaultConfig {
-        applicationId = "com.mustfaibra.qpaymultiplatform.android"
+        applicationId = "com.fyncom.karmacall.android"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
